@@ -1,0 +1,57 @@
+logging:
+  level:
+    ROOT: DEBUG
+    com.wms: DEBUG
+
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+spring:
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://wms-database:5432/wms-database?currentSchema=public
+    username: root_wmS_mo_user
+    password: root_wmS_mo_p@5sWord
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+  jpa:
+    show-sql: true
+    properties:
+      hibernate.id.new_generator_mappings: false
+      hibernate.use-new-id-generator-mappings: false
+      hibernate.connection.provider_disables_autocommit: true
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+      hibernate.ddl-auto: none
+  liquibase:
+    contexts: prod
+    change-log: classpath:/db/changelog/changelog-master.xml
+  thymeleaf:
+    cache: true
+server:
+  port: 8000
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
+    min-response-size: 1024
+  forward-headers-strategy: framework
+
+wms:
+  app:
+    jwtSecret: dbopxfkHmNPEAKQRZtJlItEJsfEUhroEfiHuwAzt
+    jwtExpirationMs: 86400000
