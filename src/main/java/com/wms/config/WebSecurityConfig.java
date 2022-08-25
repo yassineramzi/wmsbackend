@@ -1,7 +1,5 @@
-package com.socialnetworkmonitoring.config;
+package com.wms.config;
 
-import com.socialnetworkmonitoring.security.AuthenticationEntryPointJwt;
-import com.socialnetworkmonitoring.security.AuthenticationTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +18,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import com.wms.security.AuthenticationTokenFilter;
+
 import java.util.Arrays;
 
 @EnableWebSecurity
@@ -32,10 +32,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     UserDetailsService userDetailsService;
 
     @Autowired
-    private AuthenticationEntryPointJwt unauthorizedHandler;
+    private com.wms.security.AuthenticationEntryPointJwt unauthorizedHandler;
 
     @Bean
-    public AuthenticationTokenFilter authenticationJwtTokenFilter() {
+    public com.wms.security.AuthenticationTokenFilter authenticationJwtTokenFilter() {
         return new AuthenticationTokenFilter();
     }
 
