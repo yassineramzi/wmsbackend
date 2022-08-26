@@ -2,15 +2,26 @@ package com.wms.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.wms.domain.Dossier;
+import com.wms.repository.DossierRepository;
 import com.wms.service.DossierService;
 import com.wms.service.dto.DossierDTO;
+import com.wms.service.mapper.DossierMapper;
+
+import lombok.AllArgsConstructor;
 
 @Service
+@AllArgsConstructor
 public class DossierServiceImpl implements DossierService {
 
+    private DossierRepository dossierRepository;
+
+    private DossierMapper dossierMapper;
+
     @Override
-    public DossierDTO create(DossierDTO dossierDTO) {
-        return new DossierDTO();
+    public DossierDTO create(final DossierDTO dossierDto) {
+        Dossier dossier = this.dossierMapper.toEntity(dossierDto);
+        return this.dossierMapper.toDto(this.dossierRepository.save(dossier));
     }
     
 }
