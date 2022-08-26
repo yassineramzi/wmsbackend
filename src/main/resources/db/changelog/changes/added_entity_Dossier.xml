@@ -14,6 +14,36 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
+            <column name="logo" type="VARCHAR(10485760)"/>
+            <column name="denomination" type="VARCHAR(255)"/>
+            <column name="identifiant_fiscal" type="VARCHAR(255)"/>
+            <column name="ice" type="VARCHAR(255)"/>
+            <column name="activite" type="VARCHAR(255)"/>
+            <column name="adresse" type="VARCHAR(255)"/>
+            <column name="codePostal" type="VARCHAR(25)"/>
+            <column name="ville" type="VARCHAR(55)"/>
+            <column name="email" type="VARCHAR(100)"/>
+            <column name="fixe" type="VARCHAR(100)"/>
+            <column name="mobile" type="VARCHAR(100)"/>
+            <column name="date_creation_societe" type="Date"/>
+            <column name="capital" type="bigint"/>
+            <column name="valeurPart" type="bigint"/>
+            <column name="formeJuridique" type="VARCHAR(255)"/>
+            <column name="typeComptabilite" type="VARCHAR(255)"/>
+            <column name="droitTimbre" type="bigint"/>
+            <column name="regimeTva" type="VARCHAR(255)"/>
+            <column name="typeTva" type="VARCHAR(255)"/>
+            <column name="imposition" type="VARCHAR(255)"/>
+            <column name="registre_commerce" type="VARCHAR(255)"/>
+            <column name="numero_t_p" type="VARCHAR(255)"/>
+            <column name="honoraire" type="VARCHAR(255)"/>
+            <column name="periodicite_honnoraire" type="VARCHAR(255)"/>
+            <column name="code_adhesion" type="VARCHAR(255)"/>
+            <column name="login_simpl" type="VARCHAR(255)"/>
+            <column name="mot_passe_simpl" type="VARCHAR(255)"/>
+            <column name="numero_affiliation_cnss" type="VARCHAR(255)"/>
+            <column name="code_utilisation_cnss" type="VARCHAR(255)"/>
+            <column name="mot_passe_cnss" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>
