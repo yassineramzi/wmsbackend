@@ -1,5 +1,7 @@
 package com.wms.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.wms.domain.Dossier;
@@ -22,6 +24,11 @@ public class DossierServiceImpl implements DossierService {
     public DossierDTO create(final DossierDTO dossierDto) {
         Dossier dossier = this.dossierMapper.toEntity(dossierDto);
         return this.dossierMapper.toDto(this.dossierRepository.save(dossier));
+    }
+
+    @Override
+    public List<DossierDTO> findAll() {
+        return this.dossierMapper.toDto(this.dossierRepository.findAll());
     }
     
 }

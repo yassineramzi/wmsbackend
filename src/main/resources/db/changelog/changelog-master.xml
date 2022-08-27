@@ -9,4 +9,6 @@
     <include file="/db/changelog/changes/added_entity_Roles.xml" relativeToChangelogFile="false"/>
     <include file="/db/changelog/changes/added_entity_Utilisateur_Roles.xml" relativeToChangelogFile="false"/>
     <include file="/db/changelog/changes/added_entity_Dossier.xml" relativeToChangelogFile="false"/>
+    <include file="/db/changelog/changes/added_entity_Associe.xml" relativeToChangelogFile="false"/>
+    <include file="/db/changelog/changes/added_entity_Compte.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>

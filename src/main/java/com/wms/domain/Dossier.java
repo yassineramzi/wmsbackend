@@ -2,12 +2,16 @@ package com.wms.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -58,7 +62,11 @@ public class Dossier implements Serializable {
     private String  numeroAffiliationCnss;
     private String  codeUtilisationCnss;
     private String  motPasseCnss;
-    // private List<Compte>  comptes;
-    // private List<Associe>  associes;
+    @OneToMany( cascade = CascadeType.ALL )
+    @JoinColumn(name="id_dossier")
+    private List<Compte> comptes;
+    @OneToMany( cascade = CascadeType.ALL )
+    @JoinColumn(name="id_dossier")
+    private List<Associe> associes;
     
 }

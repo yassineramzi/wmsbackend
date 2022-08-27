@@ -1,5 +1,7 @@
 package com.wms.web.resources;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +26,11 @@ public class DossierApi {
     public DossierDTO create(@RequestBody DossierDTO dossierDTO) {
         log.info("Création d'un dossier :", dossierDTO);
         return this.dossierService.create(dossierDTO);
+    }
+
+    @GetMapping("/all")
+    public List<DossierDTO> findAll() {
+        log.info("Récupération des dossier :");
+        return this.dossierService.findAll();
     }
 }

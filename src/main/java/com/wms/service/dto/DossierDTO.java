@@ -2,6 +2,7 @@ package com.wms.service.dto;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -44,6 +45,6 @@ public class DossierDTO implements Serializable {
     private String  numeroAffiliationCnss;
     private String  codeUtilisationCnss;
     private String  motPasseCnss;
-    // private List<Compte>  comptes;
-    // private List<Associe>  associes;
+    private List<CompteDTO>  comptes;
+    private List<AssocieDTO>  associes;
 }
