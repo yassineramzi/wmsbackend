@@ -30,5 +30,9 @@ public class DossierServiceImpl implements DossierService {
     public List<DossierDTO> findAll() {
         return this.dossierMapper.toDto(this.dossierRepository.findAll());
     }
-    
+
+    @Override
+    public void delete(final Long id){
+        this.dossierRepository.deleteById(id);
+    }
 }

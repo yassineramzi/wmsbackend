@@ -15,16 +15,16 @@ import com.wms.service.dto.DossierDTO;
 public class DossierApi {
     private final Logger log = LoggerFactory.getLogger(DossierApi.class);
 
-    private DossierService dossierService;
+    private final DossierService dossierService;
 
     @Autowired
-    public DossierApi(DossierService dossierService) {
+    public DossierApi(final DossierService dossierService) {
         this.dossierService = dossierService;
     }
 
     @PostMapping("/create")
-    public DossierDTO create(@RequestBody DossierDTO dossierDTO) {
-        log.info("Création d'un dossier :", dossierDTO);
+    public DossierDTO create(@RequestBody final DossierDTO dossierDTO) {
+        log.info("Création d'un dossier : {}", dossierDTO);
         return this.dossierService.create(dossierDTO);
     }
 
@@ -32,5 +32,11 @@ public class DossierApi {
     public List<DossierDTO> findAll() {
         log.info("Récupération des dossier :");
         return this.dossierService.findAll();
+    }
+
+    @DeleteMapping("/{id}/delete")
+    public void delete(@PathVariable("id") final Long id) {
+        log.info("Suppression du dossier {}", id);
+        this.dossierService.delete(id);
     }
 }
