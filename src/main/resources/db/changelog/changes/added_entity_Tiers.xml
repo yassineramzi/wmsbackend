@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <property name="autoIncrement" value="true"/>
+
+    <!--
+        Added the entity Tiers.
+    -->
+    <changeSet id="08-09-2022-12-12" author="">
+        <createTable tableName="tiers">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="identifiant_fiscal" type="VARCHAR(255)"/>
+            <column name="designation" type="VARCHAR(255)"/>
+            <column name="activite" type="VARCHAR(255)"/>
+            <column name="adresse" type="VARCHAR(255)"/>
+            <column name="rib" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="ice" type="VARCHAR(255)"/>
+            <column name="registre_commerce" type="VARCHAR(255)"/>
+            <column name="telephone" type="VARCHAR(255)"/>
+            <column name="ville" type="VARCHAR(255)"/>
+            <column name="banque" type="VARCHAR(255)"/>
+            <column name="echeance" type="VARCHAR(255)"/>
+            <column name="type_echeance" type="VARCHAR(255)"/>
+            <column name="devise" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

@@ -11,4 +11,5 @@
     <include file="/db/changelog/changes/added_entity_Dossier.xml" relativeToChangelogFile="false"/>
     <include file="/db/changelog/changes/added_entity_Associe.xml" relativeToChangelogFile="false"/>
     <include file="/db/changelog/changes/added_entity_Compte.xml" relativeToChangelogFile="false"/>
+    <include file="/db/changelog/changes/added_entity_Tiers.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>
