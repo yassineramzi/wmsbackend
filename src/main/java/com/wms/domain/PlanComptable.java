@@ -27,7 +27,7 @@ public class PlanComptable implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name="numero_compte")
-    private Long numeroCompte;
+    private String numeroCompte;
     @Column(name="intitule_compte")
     private String intituleCompte;
     private String debit;

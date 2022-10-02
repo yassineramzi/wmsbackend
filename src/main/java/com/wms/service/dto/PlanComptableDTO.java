@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 public class PlanComptableDTO implements Serializable {
     private Long id;
-    private Long numeroCompte;
+    private String numeroCompte;
     private String intituleCompte;
     private String debit;
     private String typeCompte;
