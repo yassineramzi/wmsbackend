@@ -11,6 +11,7 @@ import com.wms.service.dto.TvaDTO;
 import com.wms.service.mapper.TvaMapper;
 
 @Service
+@AllArgsConstructor
 public class TvaServiceImpl  implements TvaService {
     private TvaRepository tvaRepository;
 

@@ -10,7 +10,10 @@ import com.wms.service.PlanComptableService;
 import com.wms.service.dto.PlanComptableDTO;
 import com.wms.service.mapper.PlanComptableMapper;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class PlanComptableServiceImpl  implements PlanComptableService {
     private PlanComptableRepository planComptableRepository;
 
