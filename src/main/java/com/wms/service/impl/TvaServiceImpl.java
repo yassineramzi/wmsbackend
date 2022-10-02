@@ -10,6 +10,8 @@ import com.wms.service.TvaService;
 import com.wms.service.dto.TvaDTO;
 import com.wms.service.mapper.TvaMapper;
 
+import lombok.AllArgsConstructor;
+
 @Service
 @AllArgsConstructor
 public class TvaServiceImpl  implements TvaService {
