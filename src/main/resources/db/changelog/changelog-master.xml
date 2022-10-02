@@ -14,5 +14,5 @@
     <include file="/db/changelog/changes/added_entity_Tiers.xml" relativeToChangelogFile="false"/>
     <include file="/db/changelog/changes/added_entity_Tva.xml" relativeToChangelogFile="false"/>
     <include file="/db/changelog/changes/added_entity_PlanComptable.xml" relativeToChangelogFile="false"/>
-    <include file="/db/changelog/changes/alter_entity_PlanComptable.xmll" relativeToChangelogFile="false"/>
+    <include file="/db/changelog/changes/alter_entity_PlanComptable.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>
