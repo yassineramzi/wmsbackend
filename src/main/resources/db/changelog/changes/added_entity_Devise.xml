@@ -14,6 +14,8 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
+            <column name="designation" type="VARCHAR(55)"/>
+            <column name="taux" type="bigint"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>

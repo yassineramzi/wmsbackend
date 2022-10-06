@@ -10,4 +10,6 @@ import lombok.*;
 @NoArgsConstructor
 public class DeviseDTO implements Serializable {
     private Long id;
+    private String designation;
+    private Long taux;
 }
