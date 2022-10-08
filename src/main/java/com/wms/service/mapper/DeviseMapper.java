@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import com.wms.domain.Devise;
 import com.wms.service.dto.DeviseDTO;
 
-@Mapper(componentModel = "spring", uses = {CompteMapper.class, AssocieMapper.class})
+@Mapper(componentModel = "spring")
 public interface DeviseMapper extends EntityMapper<DeviseDTO, Devise>{
     @Override
     DeviseDTO toDto(Devise devise);

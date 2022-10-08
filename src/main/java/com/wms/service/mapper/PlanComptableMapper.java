@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import com.wms.domain.PlanComptable;
 import com.wms.service.dto.PlanComptableDTO;
 
-@Mapper(componentModel = "spring", uses = {CompteMapper.class, AssocieMapper.class})
+@Mapper(componentModel = "spring")
 public interface PlanComptableMapper extends EntityMapper<PlanComptableDTO, PlanComptable>{
     @Override
     PlanComptableDTO toDto(PlanComptable planComptable);

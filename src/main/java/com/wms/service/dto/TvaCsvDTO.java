@@ -28,7 +28,7 @@ public class TvaCsvDTO implements Serializable{
     @CsvBindByName(column = "codeDeclaration", required = true)
     private Long codeDeclaration;
 
-    @PreAssignmentValidator(validator = MustMatchRegexExpression.class, paramString = "^[0-9]{1,2}$")
+    @PreAssignmentValidator(validator = MustMatchRegexExpression.class, paramString = "^[0-9]{1-2}$")
     @CsvBindByName(column = "taux", required = true)
     private Long taux;
 

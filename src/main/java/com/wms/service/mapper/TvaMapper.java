@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import com.wms.domain.Tva;
 import com.wms.service.dto.TvaDTO;
 
-@Mapper(componentModel = "spring", uses = {CompteMapper.class, AssocieMapper.class})
+@Mapper(componentModel = "spring")
 public interface TvaMapper extends EntityMapper<TvaDTO, Tva>{
     @Override
     TvaDTO toDto(Tva tva);
