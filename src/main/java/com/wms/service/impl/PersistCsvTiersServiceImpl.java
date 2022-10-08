@@ -6,6 +6,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.wms.repository.TiersRepository;
@@ -13,6 +14,7 @@ import com.wms.service.PersistCsvService;
 import com.wms.service.dto.TiersCsvDTO;
 import com.wms.service.mapper.TiersCsvMapper;
 
+@Service("tiers")
 public class PersistCsvTiersServiceImpl implements PersistCsvService<TiersCsvDTO> {
     private final Logger log = LoggerFactory.getLogger(PersistCsvTiersServiceImpl.class);
 
