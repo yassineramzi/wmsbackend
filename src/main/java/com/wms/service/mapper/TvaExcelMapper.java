@@ -5,21 +5,21 @@ import java.util.List;
 import org.mapstruct.Mapper;
 
 import com.wms.domain.Tva;
-import com.wms.service.dto.TvaCsvDTO;
+import com.wms.service.dto.TvaExcelDTO;
 
 @Mapper(componentModel = "spring")
-public interface TvaCsvMapper extends EntityMapper<TvaCsvDTO, Tva>{
+public interface TvaExcelMapper extends EntityMapper<TvaExcelDTO, Tva>{
     @Override
-    TvaCsvDTO toDto(Tva tva);
+    TvaExcelDTO toDto(Tva tva);
 
     @Override
-    List<TvaCsvDTO> toDto(List<Tva> tva);
+    List<TvaExcelDTO> toDto(List<Tva> tva);
 
     @Override
-    Tva toEntity(TvaCsvDTO tvaCsvDto);
+    Tva toEntity(TvaExcelDTO tvaExcelDTO);
 
     @Override
-    List<Tva> toEntity(List<TvaCsvDTO> tvaCsvDto);
+    List<Tva> toEntity(List<TvaExcelDTO> tvaExcelDTO);
 
     default Tva fromId(Long id) {
         if (id == null) {

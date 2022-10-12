@@ -5,21 +5,21 @@ import java.util.List;
 import org.mapstruct.Mapper;
 
 import com.wms.domain.Tiers;
-import com.wms.service.dto.TiersCsvDTO;
+import com.wms.service.dto.TiersExcelDTO;
 
 @Mapper(componentModel = "spring")
-public interface TiersCsvMapper extends EntityMapper<TiersCsvDTO, Tiers>{
+public interface TiersExcelMapper extends EntityMapper<TiersExcelDTO, Tiers>{
     @Override
-    TiersCsvDTO toDto(Tiers tiers);
+    TiersExcelDTO toDto(Tiers tiers);
 
     @Override
-    List<TiersCsvDTO> toDto(List<Tiers> tiers);
+    List<TiersExcelDTO> toDto(List<Tiers> tiers);
 
     @Override
-    Tiers toEntity(TiersCsvDTO tiersCsvDto);
+    Tiers toEntity(TiersExcelDTO TiersExcelDTO);
 
     @Override
-    List<Tiers> toEntity(List<TiersCsvDTO> tiersCsvDto);
+    List<Tiers> toEntity(List<TiersExcelDTO> TiersExcelDTO);
 
     default Tiers fromId(Long id) {
         if (id == null) {

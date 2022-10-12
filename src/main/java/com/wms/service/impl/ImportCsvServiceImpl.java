@@ -11,14 +11,15 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.wms.service.ExcelImportService;
 import com.wms.service.ImportCsvService;
-import com.wms.service.PersistCsvService;
 
 @Service
 public class ImportCsvServiceImpl implements ImportCsvService {
-    private final Logger log = LoggerFactory.getLogger(ImportCsvServiceImpl.class);
 
-    private PersistCsvService persistCsvService;
+    private ExcelImportService excelImportService;
+
+    private final Logger log = LoggerFactory.getLogger(ImportCsvServiceImpl.class);
 
     private final ApplicationContext appContext;
 
@@ -30,10 +31,10 @@ public class ImportCsvServiceImpl implements ImportCsvService {
     @Override
     public boolean importCsvByType(MultipartFile file, String type) {
         try (Reader reader = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
-            this.persistCsvService = (PersistCsvService) this.appContext.getBean(type);
-            this.persistCsvService.saveCsv(reader);
+            this.excelImportService = (ExcelImportService) this.appContext.getBean(type);
+            this.excelImportService.importExcelFile(file);
         } catch (Exception ex) {
-            log.error("Une erreur : {} , est survenue lors de l'import d'un CSV du type : {}", ex.getMessage(), type);
+            log.error("Une erreur : {} , est survenue lors de l'import du fichier Excel du type : {}", ex.getMessage(), type);
         }
         return false;
     }
