@@ -12,12 +12,6 @@ logging:
     com.wms: INFO
 
 spring:
-  profiles:
-    active: dev
-    include:
-      - swagger
-      # Uncomment to activate TLS for the dev Profile
-      #- tls
   devtools:
     restart:
       enabled: true

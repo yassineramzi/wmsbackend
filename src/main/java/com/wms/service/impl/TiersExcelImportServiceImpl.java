@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,22 +32,30 @@ public class TiersExcelImportServiceImpl extends ExcelImportService<TiersExcelDT
     }
 
     @Override
-    protected TiersExcelDTO createFromRow(final Row row) {
+    protected void createFromRow(final Row row) {
         if (row.getRowNum() != 0) {
-            if (StringUtils.equalsIgnoreCase(row.getCell(0).getStringCellValue(), "FIN") || row.getCell(0).getStringCellValue() == null) {
-                return null;
-            } else {
-                TiersExcelDTO tiersExcelDTO = new TiersExcelDTO();
-                tiersExcelDTO.setIdentifiantFiscal(row.getCell(0).getStringCellValue());
-                return tiersExcelDTO;
+            TiersExcelDTO tiersExcelDTO = new TiersExcelDTO();
+            try{
+                tiersExcelDTO.setIdentifiantFiscal(String.valueOf(row.getCell(0).getNumericCellValue()));
+                // tiersExcelDTO.setRib(String.valueOf(row.getCell(1).getStringCellValue()));
+                // tiersExcelDTO.setEmail(String.valueOf(row.getCell(2).getStringCellValue()));
+                // tiersExcelDTO.setDesignation(String.valueOf(row.getCell(3).getStringCellValue()));
+                // tiersExcelDTO.setActivite(String.valueOf(row.getCell(4).getStringCellValue()));
+                // tiersExcelDTO.setAdresse(String.valueOf(row.getCell(5).getStringCellValue()));
+                // tiersExcelDTO.setIce(String.valueOf(row.getCell(6).getNumericCellValue()));
+                // tiersExcelDTO.setRegistreCommerce(String.valueOf(row.getCell(7).getStringCellValue()));
+                // tiersExcelDTO.setTelephone(String.valueOf(row.getCell(8).getNumericCellValue()));
+                // tiersExcelDTO.setVille(String.valueOf(row.getCell(9).getStringCellValue()));
+                // tiersExcelDTO.setBanque(String.valueOf(row.getCell(10).getStringCellValue()));
+                // tiersExcelDTO.setEcheance(String.valueOf(row.getCell(11).getStringCellValue()));
+                // tiersExcelDTO.setTypeEcheance(String.valueOf(row.getCell(12).getStringCellValue()));
+                // tiersExcelDTO.setDevise(String.valueOf(row.getCell(13).getStringCellValue()));
+                this.validLigns.add(tiersExcelDTO);
+            } catch(Exception e) {
+                log.error("Une erreur est survenue lors du traitement d'une ligne : {}", e.getMessage());
+                this.unvalidLigns.add(tiersExcelDTO);
             }
         }
-        return null;
-    }
-
-    @Override
-    protected void addObject(final TiersExcelDTO tiersExcelDTO) {
-        this.validLigns.add(tiersExcelDTO);
     }
 
     public void importExcelFile(final MultipartFile file) throws Exception {
