@@ -37,7 +37,7 @@ public class TvaExcelImportServiceImpl extends ExcelImportService<TvaExcelDTO>{
         if (row.getRowNum() != 0) {
             TvaExcelDTO tvaExcelDTO = new TvaExcelDTO();
             try{
-                tvaExcelDTO.setIntitule(String.valueOf(row.getCell(0).getNumericCellValue()));
+                tvaExcelDTO.setIntitule(String.valueOf(row.getCell(0).getStringCellValue()));
                 tvaExcelDTO.setLibelle(String.valueOf(row.getCell(1).getStringCellValue()));
                 tvaExcelDTO.setCodeDeclaration((long)row.getCell(2).getNumericCellValue());
                 tvaExcelDTO.setTaux((long)row.getCell(3).getNumericCellValue());

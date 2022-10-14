@@ -7,7 +7,7 @@ run :
 
 Then run:
 
-    java -jar target/wmsbackend-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
+    java -jar target/wms-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
 
 ## To test Application
 
