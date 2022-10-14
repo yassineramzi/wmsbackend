@@ -4,8 +4,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -37,19 +35,19 @@ public class TiersExcelImportServiceImpl extends ExcelImportService<TiersExcelDT
             TiersExcelDTO tiersExcelDTO = new TiersExcelDTO();
             try{
                 tiersExcelDTO.setIdentifiantFiscal(String.valueOf(row.getCell(0).getNumericCellValue()));
-                // tiersExcelDTO.setRib(String.valueOf(row.getCell(1).getStringCellValue()));
-                // tiersExcelDTO.setEmail(String.valueOf(row.getCell(2).getStringCellValue()));
-                // tiersExcelDTO.setDesignation(String.valueOf(row.getCell(3).getStringCellValue()));
-                // tiersExcelDTO.setActivite(String.valueOf(row.getCell(4).getStringCellValue()));
-                // tiersExcelDTO.setAdresse(String.valueOf(row.getCell(5).getStringCellValue()));
-                // tiersExcelDTO.setIce(String.valueOf(row.getCell(6).getNumericCellValue()));
-                // tiersExcelDTO.setRegistreCommerce(String.valueOf(row.getCell(7).getStringCellValue()));
-                // tiersExcelDTO.setTelephone(String.valueOf(row.getCell(8).getNumericCellValue()));
-                // tiersExcelDTO.setVille(String.valueOf(row.getCell(9).getStringCellValue()));
-                // tiersExcelDTO.setBanque(String.valueOf(row.getCell(10).getStringCellValue()));
-                // tiersExcelDTO.setEcheance(String.valueOf(row.getCell(11).getStringCellValue()));
-                // tiersExcelDTO.setTypeEcheance(String.valueOf(row.getCell(12).getStringCellValue()));
-                // tiersExcelDTO.setDevise(String.valueOf(row.getCell(13).getStringCellValue()));
+                tiersExcelDTO.setRib(String.valueOf(row.getCell(1).getStringCellValue()));
+                tiersExcelDTO.setEmail(String.valueOf(row.getCell(2).getStringCellValue()));
+                tiersExcelDTO.setDesignation(String.valueOf(row.getCell(3).getStringCellValue()));
+                tiersExcelDTO.setActivite(String.valueOf(row.getCell(4).getStringCellValue()));
+                tiersExcelDTO.setAdresse(String.valueOf(row.getCell(5).getStringCellValue()));
+                tiersExcelDTO.setIce(String.valueOf(row.getCell(6).getNumericCellValue()));
+                tiersExcelDTO.setRegistreCommerce(String.valueOf(row.getCell(7).getStringCellValue()));
+                tiersExcelDTO.setTelephone(String.valueOf(row.getCell(8).getNumericCellValue()));
+                tiersExcelDTO.setVille(String.valueOf(row.getCell(9).getStringCellValue()));
+                tiersExcelDTO.setBanque(String.valueOf(row.getCell(10).getStringCellValue()));
+                tiersExcelDTO.setEcheance(String.valueOf(row.getCell(11).getStringCellValue()));
+                tiersExcelDTO.setTypeEcheance(String.valueOf(row.getCell(12).getStringCellValue()));
+                tiersExcelDTO.setDevise(String.valueOf(row.getCell(13).getStringCellValue()));
                 this.validLigns.add(tiersExcelDTO);
             } catch(Exception e) {
                 log.error("Une erreur est survenue lors du traitement d'une ligne : {}", e.getMessage());

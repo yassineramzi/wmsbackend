@@ -3,10 +3,7 @@ package com.wms.service;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-// https://www.freecodecamp.org/news/generate-excel-report-in-spring-rest-api/
-// https://howtodoinjava.com/java/library/readingwriting-excel-files-in-java-poi-tutorial/
 import java.util.Map;
 
 import org.apache.commons.io.FilenameUtils;
@@ -25,11 +22,11 @@ public abstract class ExcelImportService<T> {
 
     protected final Logger log = LoggerFactory.getLogger(ExcelImportService.class);
 
-    protected final static Map<Integer, String> FILE_HEADERS = new HashMap<>();
-
     protected final List<T> validLigns = new ArrayList<T>();
 
     protected final List<T> unvalidLigns = new ArrayList<T>();
+
+    protected final static Map<Integer, String> FILE_HEADERS = new HashMap<>();
 
     protected abstract void createFromRow(final Row row);
 
@@ -38,7 +35,7 @@ public abstract class ExcelImportService<T> {
         if (StringUtils.equalsIgnoreCase("xlsx", extension) && file != null) {
             this.parseFile((FileInputStream) file.getInputStream());
         } else
-            throw new Exception("le fichier est null or File extension not supported try xlsx file type and template format");
+            throw new Exception("Le fichier est null ou l'extension du fichier n'est pas conforme");
     }
 
     protected boolean validateTemplate(final XSSFRow row) {
@@ -55,7 +52,7 @@ public abstract class ExcelImportService<T> {
     protected void parseFile(final FileInputStream file) throws Exception {
         XSSFWorkbook wb = new XSSFWorkbook(file);
         try {
-            XSSFSheet sheet = wb.getSheetAt(0);     //creating a Sheet object to retrieve object
+            XSSFSheet sheet = wb.getSheetAt(0);
             if (!validateTemplate(sheet.getRow(0))) {
                 throw new Exception("Template non conforme");
             }
