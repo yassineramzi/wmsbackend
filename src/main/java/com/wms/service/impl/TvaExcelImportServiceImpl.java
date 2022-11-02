@@ -1,7 +1,9 @@
 package com.wms.service.impl;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.ss.usermodel.Row;
@@ -51,7 +53,7 @@ public class TvaExcelImportServiceImpl extends ExcelImportService<TvaExcelDTO>{
 
     public void importExcelFile(final MultipartFile file) throws Exception {
         super.importExcelFile(file);
-        this.tvaRepository.saveAll(this.tvaExcelMapper.toEntity(validLigns));
+        this.tvaRepository.saveAll(this.tvaExcelMapper.toEntity(this.validLigns));
     }
     
 }

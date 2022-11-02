@@ -36,6 +36,10 @@ public abstract class ExcelImportService<T> {
             this.parseFile((FileInputStream) file.getInputStream());
         } else
             throw new Exception("Le fichier est null ou l'extension du fichier n'est pas conforme");
+        if(!this.unvalidLigns.isEmpty()) {
+            log.error("Les lignes qui n'ont pas été traiter sont les suivantes : {}", unvalidLigns);
+        }
+        this.resetLists();
     }
 
     protected boolean validateTemplate(final XSSFRow row) {
@@ -68,4 +72,9 @@ public abstract class ExcelImportService<T> {
         }
     }
     
+
+    private void resetLists() {
+        this.validLigns.clear();
+        this.unvalidLigns.clear();
+    }
 }
