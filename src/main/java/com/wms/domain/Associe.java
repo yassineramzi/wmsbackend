@@ -23,7 +23,7 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name = "associe")
-public class Associe implements Serializable {
+public class Associe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -4,19 +4,21 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Row;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.wms.repository.TvaRepository;
 import com.wms.service.ExcelImportService;
-import com.wms.service.dto.TvaExcelDTO;
-import com.wms.service.mapper.TvaExcelMapper;
+import com.wms.dto.TvaExcelDTO;
+import com.wms.mapper.TvaExcelMapper;
 
 import lombok.AllArgsConstructor;
 
 @Service("tva")
 @AllArgsConstructor
+@Slf4j
 public class TvaExcelImportServiceImpl extends ExcelImportService<TvaExcelDTO>{
 
     private final TvaExcelMapper tvaExcelMapper;

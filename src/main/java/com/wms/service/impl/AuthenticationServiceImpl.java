@@ -8,8 +8,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.wms.service.AuthenticationService;
-import com.wms.service.dto.JwtDTO;
-import com.wms.service.dto.security.UserDetailsImpl;
+import com.wms.dto.JwtDTO;
+import com.wms.dto.security.UserDetailsImpl;
 import com.wms.utils.JwtUtils;
 
 import java.util.List;

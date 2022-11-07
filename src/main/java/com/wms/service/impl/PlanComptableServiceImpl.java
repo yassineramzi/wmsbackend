@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import com.wms.domain.PlanComptable;
 import com.wms.repository.PlanComptableRepository;
 import com.wms.service.PlanComptableService;
-import com.wms.service.dto.PlanComptableDTO;
-import com.wms.service.mapper.PlanComptableMapper;
+import com.wms.dto.PlanComptableDTO;
+import com.wms.mapper.PlanComptableMapper;
 
 import lombok.AllArgsConstructor;
 

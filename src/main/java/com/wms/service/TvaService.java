@@ -2,7 +2,7 @@ package com.wms.service;
 
 import java.util.List;
 
-import com.wms.service.dto.TvaDTO;
+import com.wms.dto.TvaDTO;
 
 public interface TvaService {
 

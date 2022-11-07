@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-import com.wms.service.dto.security.UserDetailsImpl;
+import com.wms.dto.security.UserDetailsImpl;
 
 import io.jsonwebtoken.*;
 

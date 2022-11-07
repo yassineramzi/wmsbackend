@@ -2,7 +2,7 @@ package com.wms.service;
 
 import java.util.List;
 
-import com.wms.service.dto.TiersDTO;
+import com.wms.dto.TiersDTO;
 
 public interface TiersService {
     TiersDTO create(final TiersDTO tiersDTO);

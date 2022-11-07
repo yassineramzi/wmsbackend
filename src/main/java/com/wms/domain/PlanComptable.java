@@ -22,7 +22,7 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name = "plan_comptable")
-public class PlanComptable implements Serializable{
+public class PlanComptable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

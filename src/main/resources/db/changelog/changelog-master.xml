@@ -16,4 +16,5 @@
     <include file="/db/changelog/changes/added_entity_PlanComptable.xml" relativeToChangelogFile="false"/>
     <include file="/db/changelog/changes/alter_entity_PlanComptable.xml" relativeToChangelogFile="false"/>
     <include file="/db/changelog/changes/added_entity_Devise.xml" relativeToChangelogFile="false"/>
+    <include file="/db/changelog/changes/added_entity_Journal.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>
