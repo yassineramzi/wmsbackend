@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import com.wms.domain.Tiers;
 import com.wms.repository.TiersRepository;
 import com.wms.service.TiersService;
-import com.wms.service.dto.TiersDTO;
-import com.wms.service.mapper.TiersMapper;
+import com.wms.dto.TiersDTO;
+import com.wms.mapper.TiersMapper;
 
 import lombok.AllArgsConstructor;
 

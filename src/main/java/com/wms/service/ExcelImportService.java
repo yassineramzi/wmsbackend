@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.Cell;
@@ -17,10 +18,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
-
+@Slf4j
 public abstract class ExcelImportService<T> {
-
-    protected final Logger log = LoggerFactory.getLogger(ExcelImportService.class);
 
     protected final List<T> validLigns = new ArrayList<T>();
 

@@ -4,19 +4,21 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Row;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.wms.repository.TiersRepository;
 import com.wms.service.ExcelImportService;
-import com.wms.service.dto.TiersExcelDTO;
-import com.wms.service.mapper.TiersExcelMapper;
+import com.wms.dto.TiersExcelDTO;
+import com.wms.mapper.TiersExcelMapper;
 
 import lombok.AllArgsConstructor;
 
 @Service("tiers")
 @AllArgsConstructor
+@Slf4j
 public class TiersExcelImportServiceImpl extends ExcelImportService<TiersExcelDTO>{
 
     private final TiersExcelMapper tiersExcelMapper;

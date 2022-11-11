@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.wms.domain.Utilisateur;
 import com.wms.repository.UtilisateurRepository;
-import com.wms.service.dto.security.UserDetailsImpl;
+import com.wms.dto.security.UserDetailsImpl;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

@@ -21,7 +21,7 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name = "tiers")
-public class Tiers implements Serializable {
+public class Tiers{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

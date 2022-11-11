@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import com.wms.domain.Dossier;
 import com.wms.repository.DossierRepository;
 import com.wms.service.DossierService;
-import com.wms.service.dto.DossierDTO;
-import com.wms.service.mapper.DossierMapper;
+import com.wms.dto.DossierDTO;
+import com.wms.mapper.DossierMapper;
 
 import lombok.AllArgsConstructor;
 

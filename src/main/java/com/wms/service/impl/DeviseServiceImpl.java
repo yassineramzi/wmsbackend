@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import com.wms.domain.Devise;
 import com.wms.repository.DeviseRepository;
 import com.wms.service.DeviseService;
-import com.wms.service.dto.DeviseDTO;
-import com.wms.service.mapper.DeviseMapper;
+import com.wms.dto.DeviseDTO;
+import com.wms.mapper.DeviseMapper;
 
 import lombok.AllArgsConstructor;
 

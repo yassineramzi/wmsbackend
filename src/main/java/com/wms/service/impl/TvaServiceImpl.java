@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import com.wms.domain.Tva;
 import com.wms.repository.TvaRepository;
 import com.wms.service.TvaService;
-import com.wms.service.dto.TvaDTO;
-import com.wms.service.mapper.TvaMapper;
+import com.wms.dto.TvaDTO;
+import com.wms.mapper.TvaMapper;
 
 import lombok.AllArgsConstructor;
 
