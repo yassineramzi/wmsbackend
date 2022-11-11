@@ -1,6 +1,5 @@
 package com.wms.domain;
 
-import liquibase.pro.packaged.S;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
