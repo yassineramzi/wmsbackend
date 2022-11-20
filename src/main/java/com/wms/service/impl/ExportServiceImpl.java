@@ -18,7 +18,7 @@ public class ExportServiceImpl implements ExportService{
 
     private ExcelExportService excelExportService;
 
-    private final Logger log = LoggerFactory.getLogger(ImportCsvServiceImpl.class);
+    private final Logger log = LoggerFactory.getLogger(ExportServiceImpl.class);
 
     private final ApplicationContext appContext;
 
