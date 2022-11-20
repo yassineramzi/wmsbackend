@@ -26,6 +26,7 @@ public class DossierExcelExportServiceImpl extends ExcelExportService<DossierExc
     }
 
     protected void writeHeader() {
+        this.workbook = new XSSFWorkbook();
         sheet = workbook.createSheet("Dossier");
         Row row = sheet.createRow(0);
         CellStyle style = workbook.createCellStyle();
