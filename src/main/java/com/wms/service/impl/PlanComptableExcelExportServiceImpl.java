@@ -3,7 +3,6 @@ package com.wms.service.impl;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFFont;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +26,6 @@ public class PlanComptableExcelExportServiceImpl extends ExcelExportService<Plan
     }
 
     protected void writeHeader() {
-        this.workbook = new XSSFWorkbook();
         sheet = workbook.createSheet("PlanComptable");
         Row row = sheet.createRow(0);
         CellStyle style = workbook.createCellStyle();

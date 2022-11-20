@@ -16,7 +16,7 @@ public abstract class ExcelExportService<T> {
     protected XSSFSheet sheet;
 
     public ExcelExportService() {
-        this.workbook = new XSSFWorkbook();
+        
     }
 
     protected void createCell(Row row, int columnCount, Object valueOfCell, CellStyle style) {
@@ -39,6 +39,7 @@ public abstract class ExcelExportService<T> {
     protected abstract void writeHeader();
 
     public void generateExcelFile(HttpServletResponse response) throws IOException {
+        this.workbook = new XSSFWorkbook();
         writeHeader();
         write();
         ServletOutputStream outputStream = response.getOutputStream();
