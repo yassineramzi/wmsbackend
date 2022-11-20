@@ -23,14 +23,14 @@ public class ExportApi {
 
     private final ExportService exportService;
 
-    @GetMapping("/excel/{type}")
+    @GetMapping("/{type}")
     public void exportIntoExcelFile(HttpServletResponse response, @PathVariable("type") final String type) throws IOException {
         response.setContentType("application/octet-stream");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
         String currentDateTime = dateFormatter.format(new Date());
 
         String headerKey = "Content-Disposition";
-        String headerValue = "attachment; filename=export-"+type+"-"+ currentDateTime + ".xlsx";
+        String headerValue = "attachment; filename="+type+"-"+ currentDateTime + ".xlsx";
         response.setHeader(headerKey, headerValue);
 
         exportService.generateExcelFile(response, type);

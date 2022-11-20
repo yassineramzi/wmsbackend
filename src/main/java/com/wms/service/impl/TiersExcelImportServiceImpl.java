@@ -25,7 +25,20 @@ public class TiersExcelImportServiceImpl extends ExcelImportService<TiersExcelDT
 
     static {
         Map<Integer, String> headers = new HashMap<Integer, String>();
-        headers.put(0, "identifiantFiscal");
+        headers.put( 0, "Identifiant fiscal");
+        headers.put( 1, "ICE");
+        headers.put( 2, "RIB");
+        headers.put( 3, "Designation");
+        headers.put( 4, "Activite");
+        headers.put( 5, "Adresse");
+        headers.put( 6, "Email");
+        headers.put( 7, "Registre du commerce");
+        headers.put( 8, "Téléphone");
+        headers.put( 9, "Ville");
+        headers.put( 10, "Banque");
+        headers.put( 11, "Echeance");
+        headers.put( 12, "Type echeance");
+        headers.put( 13, "Devise");
         FILE_HEADERS.putAll(Collections.unmodifiableMap(headers));
     }
 
