@@ -9,8 +9,11 @@ import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class ExcelExportService<T> {
+    protected Logger logger = LoggerFactory.getLogger(ExcelExportService.class);
     protected  List < T > data;
     protected XSSFWorkbook workbook;
     protected XSSFSheet sheet;

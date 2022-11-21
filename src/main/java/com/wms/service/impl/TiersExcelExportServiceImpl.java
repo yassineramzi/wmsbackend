@@ -57,22 +57,27 @@ public class TiersExcelExportServiceImpl extends ExcelExportService<TiersExcelDT
         style.setFont(font);
         this.data = this.tiersExcelMapper.toDto(this.tiersRepository.findAll());
         for (TiersExcelDTO record: data) {
-            Row row = sheet.createRow(rowCount++);
-            int columnCount = 0;
-            createCell(row, columnCount++, record.getIdentifiantFiscal(), style);
-            createCell(row, columnCount++, record.getIce(), style);
-            createCell(row, columnCount++, record.getRib(), style);
-            createCell(row, columnCount++, record.getDesignation(), style);
-            createCell(row, columnCount++, record.getActivite(), style);
-            createCell(row, columnCount++, record.getAdresse(), style);
-            createCell(row, columnCount++, record.getEmail(), style);
-            createCell(row, columnCount++, record.getRegistreCommerce(), style);
-            createCell(row, columnCount++, record.getTelephone(), style);
-            createCell(row, columnCount++, record.getVille(), style);
-            createCell(row, columnCount++, record.getBanque(), style);
-            createCell(row, columnCount++, record.getEcheance(), style);
-            createCell(row, columnCount++, record.getTypeEcheance(), style);
-            createCell(row, columnCount++, record.getDevise(), style);
+            Row row = null;
+            try {
+                row = sheet.createRow(rowCount++);
+                int columnCount = 0;
+                createCell(row, columnCount++, record.getIdentifiantFiscal(), style);
+                createCell(row, columnCount++, record.getIce(), style);
+                createCell(row, columnCount++, record.getRib(), style);
+                createCell(row, columnCount++, record.getDesignation(), style);
+                createCell(row, columnCount++, record.getActivite(), style);
+                createCell(row, columnCount++, record.getAdresse(), style);
+                createCell(row, columnCount++, record.getEmail(), style);
+                createCell(row, columnCount++, record.getRegistreCommerce(), style);
+                createCell(row, columnCount++, record.getTelephone(), style);
+                createCell(row, columnCount++, record.getVille(), style);
+                createCell(row, columnCount++, record.getBanque(), style);
+                createCell(row, columnCount++, record.getEcheance(), style);
+                createCell(row, columnCount++, record.getTypeEcheance(), style);
+                createCell(row, columnCount++, record.getDevise(), style);
+            } catch(Exception e) {
+                logger.error("Une erreur est survenue lors de l'export de la ligne : {}", row);
+            }
         }
     }
     
