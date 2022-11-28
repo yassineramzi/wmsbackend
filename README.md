@@ -15,7 +15,7 @@ Then run:
 
 ## To connect to database
 
-    psql -h 172.23.0.3 -d wms-database -U root_wmS_mo_user 
+    psql -h 172.18.0.4 -d wms-database -U root_wmS_mo_user 
     
     and type password :
     
