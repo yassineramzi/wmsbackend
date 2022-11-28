@@ -33,6 +33,7 @@ public class Associe implements Serializable {
     private String cin;
     private String adresse;
     private Long nombrePart;
+    private boolean gerant;
     @ManyToOne
     @JoinColumn(name="id_dossier", referencedColumnName = "id", updatable = false)
     private Dossier dossier;

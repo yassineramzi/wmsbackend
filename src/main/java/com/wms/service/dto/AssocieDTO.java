@@ -21,4 +21,5 @@ public class AssocieDTO implements Serializable {
     private String cin;
     private String adresse;
     private Long nombrePart;
+    private boolean gerant;
 }
