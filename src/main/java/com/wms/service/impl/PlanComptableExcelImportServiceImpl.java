@@ -23,7 +23,7 @@ public class PlanComptableExcelImportServiceImpl extends ExcelImportService<Plan
 
     private final PlanComptableRepository planComptableRepository;
 
-    static {
+    {
         Map<Integer, String> headers = new HashMap<Integer, String>();
         headers.put( 0, "Numéro de compte");
         headers.put( 1, "Intitulé du compte");

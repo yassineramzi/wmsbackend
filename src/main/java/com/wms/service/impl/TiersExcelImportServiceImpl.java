@@ -23,7 +23,7 @@ public class TiersExcelImportServiceImpl extends ExcelImportService<TiersExcelDT
 
     private final TiersRepository tiersRepository;
 
-    static {
+    {
         Map<Integer, String> headers = new HashMap<Integer, String>();
         headers.put( 0, "Identifiant fiscal");
         headers.put( 1, "ICE");

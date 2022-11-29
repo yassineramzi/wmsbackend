@@ -23,7 +23,7 @@ public class TvaExcelImportServiceImpl extends ExcelImportService<TvaExcelDTO>{
 
     private final TvaRepository tvaRepository;
 
-    static {
+    {
         Map<Integer, String> headers = new HashMap<Integer, String>();
         headers.put(0, "intitule");
         headers.put(1, "libelle");
@@ -49,6 +49,7 @@ public class TvaExcelImportServiceImpl extends ExcelImportService<TvaExcelDTO>{
         }
     }
 
+    @Override
     public void importExcelFile(final MultipartFile file) throws Exception {
         super.importExcelFile(file);
         this.tvaRepository.saveAll(this.tvaExcelMapper.toEntity(this.validLigns));

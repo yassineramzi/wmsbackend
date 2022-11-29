@@ -26,11 +26,12 @@ public abstract class ExcelImportService<T> {
 
     protected final List<T> unvalidLigns = new ArrayList<T>();
 
-    protected final static Map<Integer, String> FILE_HEADERS = new HashMap<>();
+    protected final Map<Integer, String> FILE_HEADERS = new HashMap<>();
 
     protected abstract void createFromRow(final Row row);
 
     public void importExcelFile(final MultipartFile file) throws Exception {
+        this.resetLists();
         String extension = FilenameUtils.getExtension(file.getOriginalFilename());
         if (StringUtils.equalsIgnoreCase("xlsx", extension) && file != null) {
             this.parseFile((FileInputStream) file.getInputStream());
@@ -39,15 +40,15 @@ public abstract class ExcelImportService<T> {
         if(!this.unvalidLigns.isEmpty()) {
             log.error("Les lignes qui n'ont pas été traiter sont les suivantes : {}", unvalidLigns);
         }
-        this.resetLists();
     }
 
     protected boolean validateTemplate(final XSSFRow row) {
         boolean isValid = true;
+        log.info("Validation du header {}", FILE_HEADERS);
         for (Map.Entry<Integer, String> entry : FILE_HEADERS.entrySet()) {
             Cell cell =row.getCell(entry.getKey());
-            if(cell == null || !StringUtils.equalsIgnoreCase(cell.getStringCellValue(), entry.getValue())) {
-                return false;
+            if(cell == null || !StringUtils.equalsIgnoreCase(cell.getStringCellValue().trim(), entry.getValue())) {
+                    return false;
             }
         };
         return isValid;
@@ -57,12 +58,14 @@ public abstract class ExcelImportService<T> {
         XSSFWorkbook wb = new XSSFWorkbook(file);
         try {
             XSSFSheet sheet = wb.getSheetAt(0);
+            log.info("Row : {}",sheet.getRow(0));
             if (!validateTemplate(sheet.getRow(0))) {
                 throw new Exception("Template non conforme");
             }
             int lastRowNumber = sheet.getLastRowNum();
-            for(int i=1; i<lastRowNumber; i++) {
+            for(int i=1; i<=lastRowNumber; i++) {
                 Row row = sheet.getRow(i);
+                log.info("Row : {}",row);
                 this.createFromRow(row);
             }
         }catch (Exception e) {
@@ -72,8 +75,7 @@ public abstract class ExcelImportService<T> {
         }
     }
     
-
-    private void resetLists() {
+    protected void resetLists() {
         this.validLigns.clear();
         this.unvalidLigns.clear();
     }

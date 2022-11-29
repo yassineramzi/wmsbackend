@@ -3,7 +3,7 @@
 
 run :
 
-	./mvnw package -Dmode=dev
+	./mvnw package
 
 Then run:
 
@@ -11,7 +11,7 @@ Then run:
 
 ## To test Application
 
-    http://161.97.135.217:8930/
+    http://173.249.11.194:8930/
 
 ## To connect to database
 

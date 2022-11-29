@@ -23,7 +23,7 @@ public class DeviseExcelImportServiceImpl extends ExcelImportService<DeviseExcel
 
     private final DeviseRepository deviseRepository;
 
-    static {
+    {
         Map<Integer, String> headers = new HashMap<Integer, String>();
         headers.put(0, "designation");
         headers.put(1, "taux");
@@ -45,6 +45,7 @@ public class DeviseExcelImportServiceImpl extends ExcelImportService<DeviseExcel
         }
     }
 
+    @Override
     public void importExcelFile(final MultipartFile file) throws Exception {
         super.importExcelFile(file);
         this.deviseRepository.saveAll(this.deviseExcelMapper.toEntity(this.validLigns));

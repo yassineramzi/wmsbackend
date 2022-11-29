@@ -23,7 +23,7 @@ public class DossierExcelImportServiceImpl extends ExcelImportService<DossierExc
 
     private final DossierRepository dossierRepository;
 
-    static {
+    {
         Map<Integer, String> headers = new HashMap<Integer, String>();
         headers.put( 0, "Dénomination");
         headers.put( 1, "Identifiant fiscal");
