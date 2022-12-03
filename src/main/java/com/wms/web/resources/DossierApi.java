@@ -47,4 +47,16 @@ public class DossierApi {
     	 log.info("Modification du dossier {}", dossierDTO);
     	  return this.dossierService.update( dossierDTO ,id); 
     }
+    
+    
+    
+    @GetMapping("/findbyid/{id}")
+    public DossierDTO findbyId(final long id) {
+        log.info("Récupération des dossier :");
+        return this.dossierService.findbyId(id); 
+    
+    
+    }
+    
+    
 }

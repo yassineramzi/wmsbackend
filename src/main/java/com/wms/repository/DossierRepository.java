@@ -11,4 +11,5 @@ import com.wms.domain.Dossier;
 @Repository
 public interface DossierRepository extends JpaRepository<Dossier, Long> {
 
+	
 }

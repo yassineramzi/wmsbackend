@@ -42,8 +42,8 @@ public class DossierServiceImpl implements DossierService {
 	@Override
 	public DossierDTO update(DossierDTO dossierDTO, long id) {
 		
+		
 		 Dossier dossierEntity  = dossierRepository.findById(id).get();
-		 
 			
 		  if(dossierEntity == null) throw new NoSuchElementException("le dossier avec id:" +id+" nexiste pas  ");
 		  
@@ -56,11 +56,21 @@ public class DossierServiceImpl implements DossierService {
 		  
 		  
 		  
-        return this.dossierMapper.toDto(dossierUpdated);
+       return this.dossierMapper.toDto(dossierUpdated);
 		
 		
 	}
 
+	@Override
+	public DossierDTO findbyId(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+	
+	
 
 	
     
