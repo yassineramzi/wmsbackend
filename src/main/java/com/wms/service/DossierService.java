@@ -10,6 +10,6 @@ public interface DossierService {
     void delete(final Long id);
   
     
-  	DossierDTO update(  final DossierDTO dossierDTO ,final Long id  );
+  	DossierDTO update(  final DossierDTO dossierDTO ,final long id  );
       
 }

@@ -42,10 +42,9 @@ public class DossierApi {
     
     
     @PutMapping("/{id}/update")  
-    private DossierDTO update(@RequestBody  final DossierDTO dossierDTO  ,@PathVariable("id") final Long id )   
+    public DossierDTO update(@RequestBody  final DossierDTO dossierDTO  ,@PathVariable("id") final long id )   
     {  
     	 log.info("Modification du dossier {}", dossierDTO);
     	  return this.dossierService.update( dossierDTO ,id); 
-    }  
-    
+    }
 }
