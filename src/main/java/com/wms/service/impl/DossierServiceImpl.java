@@ -1,7 +1,10 @@
 package com.wms.service.impl;
 
+import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.wms.domain.Dossier;
@@ -35,4 +38,28 @@ public class DossierServiceImpl implements DossierService {
     public void delete(final Long id){
         this.dossierRepository.deleteById(id);
     }
+
+	@Override
+	public DossierDTO update( DossierDTO dossierDTO ,Long id)  {
+		
+		 Dossier dossierEntity  = dossierRepository.findById(id).get();
+		 
+	
+		  if(dossierEntity == null) throw new NoSuchElementException("le dossier avec id:" +id+" nexiste pas  ");
+		  
+		  Dossier dossierEntityMapped =this.dossierMapper.toEntity(dossierDTO);
+		  
+		  dossierEntityMapped.setId(dossierEntity.getId());
+		  
+		  Dossier dossierUpdated =this.dossierRepository.save( dossierEntityMapped);
+		  
+		  
+		  
+		  
+         return this.dossierMapper.toDto(dossierUpdated);
+		
+	}
+    
+    
 }
+

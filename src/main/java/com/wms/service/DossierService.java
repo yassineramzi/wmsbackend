@@ -8,4 +8,8 @@ public interface DossierService {
     DossierDTO create(final DossierDTO dossierDTO);
     List<DossierDTO> findAll();
     void delete(final Long id);
+  
+    
+  	DossierDTO update(  final DossierDTO dossierDTO ,final Long id  );
+      
 }

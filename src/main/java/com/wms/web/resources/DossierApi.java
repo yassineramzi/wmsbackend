@@ -39,4 +39,13 @@ public class DossierApi {
         log.info("Suppression du dossier {}", id);
         this.dossierService.delete(id);
     }
+    
+    
+    @PutMapping("/{id}/update")  
+    private DossierDTO update(@RequestBody  final DossierDTO dossierDTO  ,@PathVariable("id") final Long id )   
+    {  
+    	 log.info("Modification du dossier {}", dossierDTO);
+    	  return this.dossierService.update( dossierDTO ,id); 
+    }  
+    
 }
