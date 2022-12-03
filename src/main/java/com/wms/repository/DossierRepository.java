@@ -12,4 +12,6 @@ import com.wms.domain.Dossier;
 public interface DossierRepository extends JpaRepository<Dossier, Long> {
 
 	
+    Dossier findById(long id );
+	
 }

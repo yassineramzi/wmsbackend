@@ -41,7 +41,7 @@ public class DossierApi {
     }
     
     
-    @PutMapping("/{id}/update")  
+    @PutMapping("/update/{id}")  
     public DossierDTO update(@RequestBody  final DossierDTO dossierDTO  ,@PathVariable("id") final long id )   
     {  
     	 log.info("Modification du dossier {}", dossierDTO);
@@ -49,14 +49,15 @@ public class DossierApi {
     }
     
     
-    
     @GetMapping("/findbyid/{id}")
-    public DossierDTO findbyId(final long id) {
-        log.info("Récupération des dossier :");
-        return this.dossierService.findbyId(id); 
+    public DossierDTO findbyId(@PathVariable long id) {
+      log.info("Récupération d'un  dossier :");
+        return this.dossierService.findDossierById(id); 
+    	
     
     
     }
+   
     
     
 }

@@ -11,7 +11,8 @@ public interface DossierService {
   
     
   	DossierDTO update(  final DossierDTO dossierDTO ,final long id  );
-  	DossierDTO findbyId(final Long id);
     
-      
+  	DossierDTO findDossierById( long id);
+
+
 }
