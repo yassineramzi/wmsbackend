@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
 
+import com.itextpdf.text.DocumentException;
+
 public interface ExportService {
-    void generateExcelFile(HttpServletResponse response, String type) throws IOException ;
+    void generateFile(HttpServletResponse response, String type) throws IOException, DocumentException ;
 }

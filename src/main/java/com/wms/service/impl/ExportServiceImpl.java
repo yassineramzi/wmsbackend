@@ -1,6 +1,9 @@
 package com.wms.service.impl;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,13 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
+import com.itextpdf.text.DocumentException;
 import com.wms.service.ExcelExportService;
 import com.wms.service.ExportService;
+import com.wms.service.PdfExportService;
 
 @Service
 public class ExportServiceImpl implements ExportService{
-
-    private ExcelExportService excelExportService;
 
     private final Logger log = LoggerFactory.getLogger(ExportServiceImpl.class);
 
@@ -28,10 +31,24 @@ public class ExportServiceImpl implements ExportService{
     }
 
     @Override
-    public void generateExcelFile(HttpServletResponse response, String type) throws IOException {
-        log.info("Export Excel de type : {}", type);
-        this.excelExportService = (ExcelExportService) this.appContext.getBean(type);
-        this.excelExportService.generateExcelFile(response);
+    public void generateFile(HttpServletResponse response, String type) throws IOException, DocumentException {
+        log.info("Export de type : {}", type);
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+        if(type.contains("excel")){
+            String headerKey = "Content-Disposition";
+            String headerValue = "attachment; filename="+type+"-"+ currentDateTime + ".xlsx";
+            response.setHeader(headerKey, headerValue);
+            ExcelExportService excelExportService = (ExcelExportService) this.appContext.getBean(type);
+            excelExportService.generateExcelFile(response);
+        } else if(type.contains("pdf")) {
+            String headerKey = "Content-Disposition";
+            String headerValue = "attachment; filename="+type+"-"+ currentDateTime + ".pdf";
+            response.setHeader(headerKey, headerValue);
+            PdfExportService pdfExportService = (PdfExportService) this.appContext.getBean(type);
+            pdfExportService.generatePdfFile(response);
+        }
     }
     
 }
