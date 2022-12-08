@@ -1,5 +1,7 @@
 package com.wms.service.impl;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,13 +27,13 @@ public class DossierExcelImportServiceImpl extends ExcelImportService<DossierExc
 
     {
         Map<Integer, String> headers = new HashMap<Integer, String>();
-        headers.put( 0, "Dénomination");
+        headers.put( 0, "Denomination");
         headers.put( 1, "Identifiant fiscal");
         headers.put( 2, "Forme juridique");
         headers.put( 3, "Adresse");
         headers.put( 4, "Ville");
         headers.put( 5, "Email");
-        headers.put( 6, "Activité");
+        headers.put( 6, "Activite");
         headers.put( 7, "Registre commerce");
         headers.put( 8, "ICE");
         FILE_HEADERS.putAll(Collections.unmodifiableMap(headers));
@@ -42,15 +44,16 @@ public class DossierExcelImportServiceImpl extends ExcelImportService<DossierExc
         if (row.getRowNum() != 0) {
             DossierExcelDTO dossierExcelDTO = new DossierExcelDTO();
             try{
-                dossierExcelDTO.setDenomination(String.valueOf(row.getCell(0).getStringCellValue()));
-                dossierExcelDTO.setIdentifiantFiscal(String.valueOf(row.getCell(1).getNumericCellValue()));
+                NumberFormat formatter = new DecimalFormat("#0");
+                dossierExcelDTO.setDenomination(String.valueOf(row.getCell(0).getStringCellValue()));                
+                dossierExcelDTO.setIdentifiantFiscal(formatter.format(row.getCell(1).getNumericCellValue()));
                 dossierExcelDTO.setFormeJuridique(String.valueOf(row.getCell(2).getStringCellValue()));
                 dossierExcelDTO.setAdresse(String.valueOf(row.getCell(3).getStringCellValue()));
                 dossierExcelDTO.setVille(String.valueOf(row.getCell(4).getStringCellValue()));
                 dossierExcelDTO.setEmail(String.valueOf(row.getCell(5).getStringCellValue()));
                 dossierExcelDTO.setActivite(String.valueOf(row.getCell(6).getStringCellValue()));
                 dossierExcelDTO.setRegistreCommerce(String.valueOf(row.getCell(7).getStringCellValue()));
-                dossierExcelDTO.setIce(String.valueOf(row.getCell(8).getNumericCellValue()));
+                dossierExcelDTO.setIce(formatter.format(row.getCell(8).getNumericCellValue()));
                 this.validLigns.add(dossierExcelDTO);
             } catch(Exception e) {
                 log.error("Une erreur est survenue lors du traitement d'une ligne : {}", e.getMessage());

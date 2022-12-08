@@ -17,8 +17,9 @@ public interface PdfExportService {
     void generatePdfFile(HttpServletResponse response) throws DocumentException, IOException;
 
     default void addTableHeader(final PdfPTable table,  final Set<String> tableHeaders) {
-        tableHeaders.stream()
-          .forEach(columnTitle -> {
+        tableHeaders
+        .stream()
+        .forEach(columnTitle -> {
             PdfPCell header = new PdfPCell();
             header.setBackgroundColor(BaseColor.LIGHT_GRAY);
             header.setBorderWidth(2);
