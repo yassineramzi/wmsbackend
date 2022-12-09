@@ -1,7 +1,5 @@
 package com.wms.service.impl;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,16 +42,15 @@ public class DossierExcelImportServiceImpl extends ExcelImportService<DossierExc
         if (row.getRowNum() != 0) {
             DossierExcelDTO dossierExcelDTO = new DossierExcelDTO();
             try{
-                NumberFormat formatter = new DecimalFormat("#0");
                 dossierExcelDTO.setDenomination(String.valueOf(row.getCell(0).getStringCellValue()));                
-                dossierExcelDTO.setIdentifiantFiscal(formatter.format(row.getCell(1).getNumericCellValue()));
+                dossierExcelDTO.setIdentifiantFiscal(getValueFromCell(row.getCell(1)));
                 dossierExcelDTO.setFormeJuridique(String.valueOf(row.getCell(2).getStringCellValue()));
                 dossierExcelDTO.setAdresse(String.valueOf(row.getCell(3).getStringCellValue()));
                 dossierExcelDTO.setVille(String.valueOf(row.getCell(4).getStringCellValue()));
                 dossierExcelDTO.setEmail(String.valueOf(row.getCell(5).getStringCellValue()));
                 dossierExcelDTO.setActivite(String.valueOf(row.getCell(6).getStringCellValue()));
-                dossierExcelDTO.setRegistreCommerce(String.valueOf(row.getCell(7).getStringCellValue()));
-                dossierExcelDTO.setIce(formatter.format(row.getCell(8).getNumericCellValue()));
+                dossierExcelDTO.setRegistreCommerce(getValueFromCell(row.getCell(7)));
+                dossierExcelDTO.setIce(getValueFromCell(row.getCell(1)));
                 this.validLigns.add(dossierExcelDTO);
             } catch(Exception e) {
                 log.error("Une erreur est survenue lors du traitement d'une ligne : {}", e.getMessage());

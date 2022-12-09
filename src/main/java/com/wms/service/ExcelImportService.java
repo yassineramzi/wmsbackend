@@ -1,6 +1,8 @@
 package com.wms.service;
 
 import java.io.FileInputStream;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -78,5 +80,14 @@ public abstract class ExcelImportService<T> {
     protected void resetLists() {
         this.validLigns.clear();
         this.unvalidLigns.clear();
+    }
+
+    protected static String getValueFromCell(Cell cell) {
+        try {
+            NumberFormat formatter = new DecimalFormat("#0");
+            return String.valueOf(formatter.format(cell.getNumericCellValue()));
+        } catch(Exception e) {
+            return String.valueOf(cell.getStringCellValue());
+        }
     }
 }

@@ -47,15 +47,15 @@ public class TiersExcelImportServiceImpl extends ExcelImportService<TiersExcelDT
         if (row.getRowNum() != 0) {
             TiersExcelDTO tiersExcelDTO = new TiersExcelDTO();
             try{
-                tiersExcelDTO.setIdentifiantFiscal(String.valueOf(row.getCell(0).getNumericCellValue()));
-                tiersExcelDTO.setRib(String.valueOf(row.getCell(1).getStringCellValue()));
+                tiersExcelDTO.setIdentifiantFiscal(getValueFromCell(row.getCell(0)));
+                tiersExcelDTO.setRib(getValueFromCell(row.getCell(1)));
                 tiersExcelDTO.setEmail(String.valueOf(row.getCell(2).getStringCellValue()));
                 tiersExcelDTO.setDesignation(String.valueOf(row.getCell(3).getStringCellValue()));
                 tiersExcelDTO.setActivite(String.valueOf(row.getCell(4).getStringCellValue()));
                 tiersExcelDTO.setAdresse(String.valueOf(row.getCell(5).getStringCellValue()));
-                tiersExcelDTO.setIce(String.valueOf(row.getCell(6).getNumericCellValue()));
-                tiersExcelDTO.setRegistreCommerce(String.valueOf(row.getCell(7).getStringCellValue()));
-                tiersExcelDTO.setTelephone(String.valueOf(row.getCell(8).getNumericCellValue()));
+                tiersExcelDTO.setIce(getValueFromCell(row.getCell(6)));
+                tiersExcelDTO.setRegistreCommerce(getValueFromCell(row.getCell(7)));
+                tiersExcelDTO.setTelephone(getValueFromCell(row.getCell(8)));
                 tiersExcelDTO.setVille(String.valueOf(row.getCell(9).getStringCellValue()));
                 tiersExcelDTO.setBanque(String.valueOf(row.getCell(10).getStringCellValue()));
                 tiersExcelDTO.setEcheance(String.valueOf(row.getCell(11).getStringCellValue()));

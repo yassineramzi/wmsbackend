@@ -38,7 +38,7 @@ public class PlanComptableExcelImportServiceImpl extends ExcelImportService<Plan
         if (row.getRowNum() != 0) {
             PlanComptableExcelDTO planComptableExcelDTO = new PlanComptableExcelDTO();
             try{
-                planComptableExcelDTO.setNumeroCompte(String.valueOf(row.getCell(0).getNumericCellValue()));
+                planComptableExcelDTO.setNumeroCompte(getValueFromCell(row.getCell(0)));
                 planComptableExcelDTO.setIntituleCompte(String.valueOf(row.getCell(1).getStringCellValue()));
                 planComptableExcelDTO.setDebit(String.valueOf(row.getCell(2).getStringCellValue()));
                 planComptableExcelDTO.setTypeCompte(String.valueOf(row.getCell(3).getStringCellValue()));
