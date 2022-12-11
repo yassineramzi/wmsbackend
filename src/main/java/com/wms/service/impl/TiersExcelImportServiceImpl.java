@@ -36,9 +36,6 @@ public class TiersExcelImportServiceImpl extends ExcelImportService<TiersExcelDT
         headers.put( 8, "Téléphone");
         headers.put( 9, "Ville");
         headers.put( 10, "Banque");
-        headers.put( 11, "Echeance");
-        headers.put( 12, "Type echeance");
-        headers.put( 13, "Devise");
         FILE_HEADERS.putAll(Collections.unmodifiableMap(headers));
     }
 
@@ -48,19 +45,16 @@ public class TiersExcelImportServiceImpl extends ExcelImportService<TiersExcelDT
             TiersExcelDTO tiersExcelDTO = new TiersExcelDTO();
             try{
                 tiersExcelDTO.setIdentifiantFiscal(getValueFromCell(row.getCell(0)));
-                tiersExcelDTO.setRib(getValueFromCell(row.getCell(1)));
-                tiersExcelDTO.setEmail(String.valueOf(row.getCell(2).getStringCellValue()));
+                tiersExcelDTO.setIce(getValueFromCell(row.getCell(1)));
+                tiersExcelDTO.setRib(getValueFromCell(row.getCell(2)));
                 tiersExcelDTO.setDesignation(String.valueOf(row.getCell(3).getStringCellValue()));
                 tiersExcelDTO.setActivite(String.valueOf(row.getCell(4).getStringCellValue()));
                 tiersExcelDTO.setAdresse(String.valueOf(row.getCell(5).getStringCellValue()));
-                tiersExcelDTO.setIce(getValueFromCell(row.getCell(6)));
+                tiersExcelDTO.setEmail(String.valueOf(row.getCell(6).getStringCellValue()));
                 tiersExcelDTO.setRegistreCommerce(getValueFromCell(row.getCell(7)));
                 tiersExcelDTO.setTelephone(getValueFromCell(row.getCell(8)));
                 tiersExcelDTO.setVille(String.valueOf(row.getCell(9).getStringCellValue()));
                 tiersExcelDTO.setBanque(String.valueOf(row.getCell(10).getStringCellValue()));
-                tiersExcelDTO.setEcheance(String.valueOf(row.getCell(11).getStringCellValue()));
-                tiersExcelDTO.setTypeEcheance(String.valueOf(row.getCell(12).getStringCellValue()));
-                tiersExcelDTO.setDevise(String.valueOf(row.getCell(13).getStringCellValue()));
                 this.validLigns.add(tiersExcelDTO);
             } catch(Exception e) {
                 log.error("Une erreur est survenue lors du traitement d'une ligne : {}", e.getMessage());
